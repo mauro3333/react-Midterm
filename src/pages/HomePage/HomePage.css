@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+
+}
+
+.home-container{
+display: grid;
+grid-template-columns: 1fr 1fr;
+background-color: rgb(134, 133, 133);
+height: 700px;
+/* width: 1500px; */
+margin: 20px;
+align-items: center;
+
+
+}
+
+.text-container{
+    display: flex;
+    margin: 10px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 300px;
+}
+
+.tensor{
+    text-align: center;
+}

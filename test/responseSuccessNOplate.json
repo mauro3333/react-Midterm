@@ -1,0 +1,25 @@
+{
+  "uuid": "",
+  "data_type": "alpr_results",
+  "epoch_time": 0,
+  "processing_time": {
+    "plates": 40.68683624,
+    "total": 61.87200004933402
+  },
+  "img_height": 920,
+  "img_width": 1380,
+  "results": [],
+  "credits_monthly_used": 156857,
+  "version": 2,
+  "credits_monthly_total": 100000000,
+  "error": false,
+  "regions_of_interest": [
+    {
+      "y": 0,
+      "x": 0,
+      "height": 920,
+      "width": 1380
+    }
+  ],
+  "credit_cost": 1
+}

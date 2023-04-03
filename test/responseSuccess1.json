@@ -1,0 +1,77 @@
+{
+  "uuid": "",
+  "data_type": "alpr_results",
+  "epoch_time": 1679809219662,
+  "processing_time": {
+    "plates": 32.92837143,
+    "total": 37.203999992925674
+  },
+  "img_height": 439,
+  "img_width": 780,
+  "results": [
+    {
+      "plate": "NDNCAR",
+      "confidence": 93.85769653,
+      "region_confidence": 55,
+      "vehicle_region": {
+        "y": 5,
+        "x": 144,
+        "height": 374,
+        "width": 635
+      },
+      "region": "eu-pl",
+      "plate_index": 0,
+      "processing_time_ms": 10.23067474,
+      "candidates": [
+        {
+          "matches_template": 0,
+          "plate": "NDNCAR",
+          "confidence": 93.85769653
+        },
+        {
+          "matches_template": 0,
+          "plate": "NDNAR",
+          "confidence": 78.24145508
+        },
+        {
+          "matches_template": 0,
+          "plate": "NDNOAR",
+          "confidence": 78.10393524
+        }
+      ],
+      "coordinates": [
+        {
+          "y": 251,
+          "x": 317
+        },
+        {
+          "y": 255,
+          "x": 421
+        },
+        {
+          "y": 309,
+          "x": 426
+        },
+        {
+          "y": 301,
+          "x": 322
+        }
+      ],
+      "matches_template": 0,
+      "requested_topn": 10
+    }
+  ],
+  "credits_monthly_used": 156833,
+  "version": 2,
+  "credits_monthly_total": 100000000,
+  "error": false,
+  "regions_of_interest": [
+    {
+      "y": 0,
+      "x": 0,
+      "height": 439,
+      "width": 780
+    }
+  ],
+  "credit_cost": 1
+}

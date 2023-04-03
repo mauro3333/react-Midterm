@@ -1,0 +1,102 @@
+{
+  "uuid": "",
+  "data_type": "alpr_results",
+  "epoch_time": 1679809442518,
+  "processing_time": {
+    "plates": 138.42730713,
+    "total": 291.93099995609373
+  },
+  "img_height": 955,
+  "img_width": 764,
+  "results": [
+    {
+      "plate": "00020MM",
+      "confidence": 93.15779114,
+      "region_confidence": 49,
+      "vehicle_region": {
+        "y": 405,
+        "x": 162,
+        "height": 272,
+        "width": 495
+      },
+      "region": "eu-ge",
+      "plate_index": 0,
+      "processing_time_ms": 5.65360022,
+      "candidates": [
+        {
+          "matches_template": 0,
+          "plate": "00020MM",
+          "confidence": 93.15779114
+        },
+        {
+          "matches_template": 0,
+          "plate": "0020MM",
+          "confidence": 79.75061798
+        },
+        {
+          "matches_template": 0,
+          "plate": "O0020MM",
+          "confidence": 79.66549683
+        },
+        {
+          "matches_template": 0,
+          "plate": "00D20MM",
+          "confidence": 79.65001678
+        },
+        {
+          "matches_template": 0,
+          "plate": "020MM",
+          "confidence": 66.34334564
+        },
+        {
+          "matches_template": 0,
+          "plate": "O020MM",
+          "confidence": 66.2583313
+        },
+        {
+          "matches_template": 0,
+          "plate": "0D20MM",
+          "confidence": 66.24275208
+        },
+        {
+          "matches_template": 0,
+          "plate": "O0D20MM",
+          "confidence": 66.1577301
+        }
+      ],
+      "coordinates": [
+        {
+          "y": 618,
+          "x": 222
+        },
+        {
+          "y": 617,
+          "x": 332
+        },
+        {
+          "y": 645,
+          "x": 331
+        },
+        {
+          "y": 646,
+          "x": 221
+        }
+      ],
+      "matches_template": 0,
+      "requested_topn": 10
+    }
+  ],
+  "credits_monthly_used": 156854,
+  "version": 2,
+  "credits_monthly_total": 100000000,
+  "error": false,
+  "regions_of_interest": [
+    {
+      "y": 0,
+      "x": 0,
+      "height": 955,
+      "width": 764
+    }
+  ],
+  "credit_cost": 1
+}

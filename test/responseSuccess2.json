@@ -1,0 +1,112 @@
+{
+  "uuid": "",
+  "data_type": "alpr_results",
+  "epoch_time": 1679809395975,
+  "processing_time": {
+    "plates": 41.44408035,
+    "total": 47.52999998163432
+  },
+  "img_height": 556,
+  "img_width": 990,
+  "results": [
+    {
+      "plate": "MUIEPSD",
+      "confidence": 88.17255402,
+      "region_confidence": 68,
+      "vehicle_region": {
+        "y": 237,
+        "x": 386,
+        "height": 214,
+        "width": 309
+      },
+      "region": "eu-se",
+      "plate_index": 0,
+      "processing_time_ms": 5.85782623,
+      "candidates": [
+        {
+          "matches_template": 0,
+          "plate": "MUIEPSD",
+          "confidence": 88.17255402
+        },
+        {
+          "matches_template": 0,
+          "plate": "MU1EPSD",
+          "confidence": 77.63449097
+        },
+        {
+          "matches_template": 0,
+          "plate": "MUEPSD",
+          "confidence": 76.52677155
+        },
+        {
+          "matches_template": 0,
+          "plate": "MUTEPSD",
+          "confidence": 76.39836884
+        },
+        {
+          "matches_template": 0,
+          "plate": "MIEPSD",
+          "confidence": 75.28330994
+        },
+        {
+          "matches_template": 0,
+          "plate": "MOIEPSD",
+          "confidence": 75.18015289
+        },
+        {
+          "matches_template": 0,
+          "plate": "M1EPSD",
+          "confidence": 64.74525452
+        },
+        {
+          "matches_template": 0,
+          "plate": "MO1EPSD",
+          "confidence": 64.64209747
+        },
+        {
+          "matches_template": 0,
+          "plate": "MEPSD",
+          "confidence": 63.63752747
+        },
+        {
+          "matches_template": 0,
+          "plate": "MOEPSD",
+          "confidence": 63.53437805
+        }
+      ],
+      "coordinates": [
+        {
+          "y": 321,
+          "x": 504
+        },
+        {
+          "y": 320,
+          "x": 593
+        },
+        {
+          "y": 339,
+          "x": 593
+        },
+        {
+          "y": 340,
+          "x": 504
+        }
+      ],
+      "matches_template": 0,
+      "requested_topn": 10
+    }
+  ],
+  "credits_monthly_used": 156850,
+  "version": 2,
+  "credits_monthly_total": 100000000,
+  "error": false,
+  "regions_of_interest": [
+    {
+      "y": 0,
+      "x": 0,
+      "height": 556,
+      "width": 990
+    }
+  ],
+  "credit_cost": 1
+}
