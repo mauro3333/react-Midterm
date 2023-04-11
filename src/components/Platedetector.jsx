@@ -1,62 +1,98 @@
+import React, { useState, useRef } from "react";
+import Webcam from "react-webcam";
+import axios from "axios";
 
-import React, { useState, useRef } from 'react';
-import Webcam from 'react-webcam';
-import axios from 'axios';
-
-
-const webcamConstraints = {
-  width: 640,
-  height: 480,
-  facingMode: "environment"
-};
-
-const apiKey = 'a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73';
-const apiEndpoint = 'https://openalpr.p.rapidapi.com/recognize_bytes';
+const apiKey = "a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73";
+const apiEndpoint = "https://openalpr.p.rapidapi.com/recognize_bytes";
 
 export default function Platedetector() {
-  const webcamRef = useRef(null);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [plateNumber, setPlateNumber] = useState(null);
+	const canvasRef = useRef(null);
+	const [screenshot, setScreenshot] = useState(null);
+	const webcamRef = useRef(null);
+	const [imageUrl, setImageUrl] = useState(null);
+	const [plateNumber, setPlateNumber] = useState(null);
 
-  const captureImage = async () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImageUrl(imageSrc);
+	const captureImage = async () => {
+		if (
+			typeof webcamRef.current !== "undefined" &&
+			webcamRef.current !== null &&
+			webcamRef.current.video.readyState === 4
+		) {
+			const canvas = canvasRef.current;
+			const webcam = webcamRef.current.video;
+			const image = webcamRef.current.getScreenshot();
+			// setScreenshot(image);
+			const screenshotWidth = webcamRef.current.video.videoWidth;
+			const screenshotHeight = webcamRef.current.video.videoHeight;
 
-    const response = await axios.post(apiEndpoint, imageSrc, {
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Host': 'openalpr.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73'
-      }
-    });
+			canvasRef.current.width = screenshotWidth;
+			canvasRef.current.height = screenshotHeight;
 
-    if (response.data.results.length > 0) {
-      setPlateNumber(response.data.results[0].plate);
-    } else {
-      setPlateNumber('No plate detected');
-    }
-  };
+			const ctx = canvasRef.current.getContext("2d");
+			ctx.drawImage(webcam, 0, 0, canvas.width, canvas.height);
+			const dataURL = canvas.toDataURL("image/jpeg");
+			setScreenshot(dataURL);
+			findPlate(dataURL);
+		}
+	};
 
-  return (
-    <div>
-      <Webcam
-        audio={false}
-        height={webcamConstraints.height}
-        width={webcamConstraints.width}
-        videoConstraints={webcamConstraints}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-      />
-      <button onClick={captureImage}>Capture</button>
-      {imageUrl && (
-        <div>
-          <img src={imageUrl} alt="captured" />
-          <p>Plate Number: {plateNumber}</p>
-        </div>
-      )}
-    </div>
-  );
+	async function findPlate(imageX) {
+		const encodedParams = new URLSearchParams();
+		encodedParams.append("image_bytes",  imageX );
+
+		const options = {
+			method: "POST",
+			url: "https://openalpr.p.rapidapi.com/recognize_bytes",
+			params: { country: "eu" },
+			headers: {
+				"content-type": "application/x-www-form-urlencoded",
+				"X-RapidAPI-Key":
+					"a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73",
+				"X-RapidAPI-Host": "openalpr.p.rapidapi.com",
+			},
+			data: encodedParams,
+		};
+
+		axios
+			.request(options)
+			.then(function (response) {
+				console.log(response.data);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
+	}
+
+	return (
+		<div>
+			<Webcam
+				ref={webcamRef}
+				muted={true}
+				screenshotFormat="image/jpeg"
+				style={{
+					// position: "absolute",
+					// zindex: 9,
+					width: 640,
+					height: 480,
+					align: "center",
+				}}
+			/>
+			<button onClick={captureImage}>Capture</button>
+			{imageUrl && (
+				<div>
+					<img src={imageUrl} alt="captured" />
+					<p>Plate Number: {plateNumber}</p>
+				</div>
+			)}
+
+			<canvas
+				// hidden
+				ref={canvasRef}
+				style={{
+					width: 160,
+					height: 120,
+				}}
+			/>
+		</div>
+	);
 }
-
-
-

@@ -19,7 +19,6 @@ import Box from "@mui/material/Box";
 // import Button from '@mui/material/Button';
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { green } from "@mui/material/colors";
 
 export default function OcrPage() {
 	const canvasRef = useRef(null);
