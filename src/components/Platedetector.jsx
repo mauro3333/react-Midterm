@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
 
-const apiKey = "a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73";
+const apiKey = "xxxxxxx";
 const apiEndpoint = "https://openalpr.p.rapidapi.com/recognize_bytes";
 
 export default function Platedetector() {
