@@ -46,8 +46,7 @@ export default function Platedetector() {
 			params: { country: "eu" },
 			headers: {
 				"content-type": "application/x-www-form-urlencoded",
-				"X-RapidAPI-Key":
-					"a6d8a8d357msh6a6e6c33dba73bcp11c305jsnef40c8149b73",
+				"X-RapidAPI-Key": apiKey,
 				"X-RapidAPI-Host": "openalpr.p.rapidapi.com",
 			},
 			data: encodedParams,
